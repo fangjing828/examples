@@ -22,6 +22,7 @@
         <module>io</module>
         <module>disruptor</module>
         <module>properties</module>
+        <module>protobuf</module>
     </modules>
 
     <dependencyManagement>

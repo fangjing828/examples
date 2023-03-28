@@ -1,0 +1,63 @@
+syntax = "proto3";
+
+package ref.parse;
+
+option java_package = "com.examples.protobuf.parse";
+option java_multiple_files = true;
+
+message CompleteNotify {
+  int64 userId = 1;
+  int64 accountId = 2;
+  int64 version = 3;
+  int64 sendTime = 4;
+  repeated Position position = 5;
+  Wallet wallet = 6;
+}
+
+message CompleteNotifyGateway {
+  bytes userId = 1;
+  bytes accountId = 2;
+  bytes version = 3;
+  bytes sendTime = 4;
+  repeated bytes position = 5;
+  bytes  wallet = 6;
+}
+
+message Position {
+  int64 positionId = 1;
+  string symbol = 2;
+  string baseCoin = 3;
+  string quoteCoin = 4;
+  string settleCoin = 5;
+  string position = 6;
+}
+
+message Wallet {
+  int64 balance = 1;
+  string baseCoin = 3;
+  string quoteCoin = 4;
+  string settleCoin = 5;
+}
+
+message SimpleNotifyWithoutTailFields {
+  int64 userId = 1;
+  int64 accountId = 2;
+}
+
+message SimpleNotifyWithoutMiddleFields {
+  int64 userId = 1;
+  int64 accountId = 2;
+  int64 sendTime = 4;
+}
+
+message SimpleNotifyWithSimplePosition {
+  int64 userId = 1;
+  int64 accountId = 2;
+  repeated SimplePosition position = 5;
+}
+message SimplePosition {
+  string symbol = 2;
+  string settleCoin = 5;
+  string position = 6;
+}
+
