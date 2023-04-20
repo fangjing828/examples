@@ -16,7 +16,6 @@
 
     <modules>
         <module>format</module>
-        <module>thread</module>
         <module>fastjson</module>
         <module>jackson</module>
         <module>io</module>
@@ -24,6 +23,9 @@
         <module>properties</module>
         <module>protobuf</module>
         <module>encoder</module>
+        <module>start</module>
+        <module>kafka</module>
+        <module>concurrent</module>
     </modules>
 
     <dependencyManagement>
