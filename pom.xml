@@ -26,6 +26,7 @@
         <module>start</module>
         <module>kafka</module>
         <module>concurrent</module>
+        <module>cache</module>
     </modules>
 
     <dependencyManagement>
