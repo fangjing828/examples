@@ -2,6 +2,7 @@ package com.examples.concurrent;
 
 import org.junit.jupiter.api.Test;
 
+import java.sql.Time;
 import java.util.concurrent.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -102,6 +103,23 @@ public class ScheduledExecutorTest {
         long interval = System.currentTimeMillis() - startTime;
         assertEquals(2000, interval, 600);
         future.cancel(false);
+    }
+
+    @Test
+    public void testSchedule() throws InterruptedException {
+        CountDownLatch countDownLatch = new CountDownLatch(5);
+        Runnable r = new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    countDownLatch.countDown();
+                } finally {
+                    executorService.schedule(this, 10, TimeUnit.MILLISECONDS);
+                }
+            }
+        };
+        executorService.schedule(r, 0, TimeUnit.MILLISECONDS);
+        countDownLatch.await(1, TimeUnit.SECONDS);
     }
 
     boolean await(CountDownLatch countDownLatch, int timeout, TimeUnit timeUnit) {
