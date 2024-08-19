@@ -27,6 +27,10 @@
         <module>kafka</module>
         <module>concurrent</module>
         <module>cache</module>
+        <module>loadbalance</module>
+        <module>strategy</module>
+        <module>fin</module>
+        <module>bybit-trade</module>
     </modules>
 
     <dependencyManagement>
@@ -34,6 +38,12 @@
             <dependency>
                 <groupId>org.junit.jupiter</groupId>
                 <artifactId>junit-jupiter</artifactId>
+                <version>5.9.0</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter-engine</artifactId>
                 <version>5.9.0</version>
                 <scope>test</scope>
             </dependency>
