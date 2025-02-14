@@ -13,12 +13,12 @@ public class KafkaUtils {
         properties.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, ByteArrayDeserializer.class);
         properties.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, ByteArrayDeserializer.class);
         // 消费组分组
-        properties.put(ConsumerConfig.GROUP_ID_CONFIG, "spring-boot-sample");
+        properties.put(ConsumerConfig.GROUP_ID_CONFIG, "spring-boot-sample-xyz");
         // 手动提交
         properties.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, "true");
         properties.put(ConsumerConfig.FETCH_MAX_BYTES_CONFIG, 100 * 1024 * 1024);
         // 获取最新的消息，丢失历史消息
-        properties.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "latest");
+        properties.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
         properties.put(ConsumerConfig.SESSION_TIMEOUT_MS_CONFIG, "30000");
         if (isNotBlank(user) && isNotBlank(password)) {
             properties.put("sasl.mechanism", "SCRAM-SHA-256");
